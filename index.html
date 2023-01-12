@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZZT personnal website</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        /* background-color: #4a4a4a; */
+        background-image: url("images/person1.jpg");
+      }
+
+      .main {
+        position: absolute;
+        top: 120px;
+        left: 50px;
+        background-color: #000;
+        opacity: 0.8;
+        width: 956px;
+        height: 414px;
+      }
+
+      .header .logo {
+        float: left;
+        margin-top: 18px;
+        margin-left: 50px;
+      }
+
+      .header .navigate ul {
+        float: right;
+        list-style: none;
+        margin-top: 38px;
+      }
+      .header .navigate ul li {
+        float: left;
+        padding-right: 26px;
+        font-size: 22px;
+      }
+
+      .header .navigate ul li a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .header .navigate ul li a:hover {
+        color: #00a78e;
+      }
+
+      .main .introduce {
+        float: left;
+        margin-top: 20px;
+        margin-left: 30px;
+      }
+      .main .hi p {
+        font-size: 22px;
+        margin-bottom: 20px;
+        color: #fff;
+        margin-top: 12px;
+        margin-left: 40px;
+      }
+
+      .main .hi .text {
+        width: 73px;
+        height: 43px;
+        background-color: #00a78e;
+        margin-top: 50px;
+        margin-left: 40px;
+      }
+      .main .hi hr {
+        border: 2px solid rgb(118, 117, 117);
+        width: 480px;
+        margin-left: 40px;
+      }
+      .main .mainly {
+        margin-top: 20px;
+        margin-left: 40px;
+        color: #fff;
+        text-align: left;
+      }
+      .main .mainly table td {
+        padding-right: 42px;
+        line-height: 30px;
+      }
+      .main .img {
+        float: right;
+        width: 320px;
+        height: 350px;
+        margin-top: 54px;
+        margin-right: 40px;
+      }
+      .main .img img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo"><img src="./images/logo.jpg" alt="" /></div>
+        <div class="navigate">
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">SERVICES</a></li>
+            <li><a href="#">EXPERIENCE</a></li>
+            <li><a href="#">PORTFOLIO</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">CONTACT</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="main">
+        <div class="introduce">
+          <div class="hi">
+            <div class="text"></div>
+            <p>UX $ UI DESIGNER</p>
+            <hr />
+          </div>
+          <div class="mainly">
+            <table>
+              <tr>
+                <td>NAME</td>
+                <td>NACY</td>
+              </tr>
+              <tr>
+                <td>D.O.B</td>
+                <td>27-10-2002</td>
+              </tr>
+              <tr>
+                <td>PHONE</td>
+                <td>++00 111 222 333</td>
+              </tr>
+              <tr>
+                <td>ADDRESS</td>
+                <td>756 Global Place,New Yock</td>
+              </tr>
+              <tr>
+                <td>EMAIL</td>
+                <td>mail@example.com</td>
+              </tr>
+              <tr>
+                <td>WEBSITE</td>
+                <td>www.nancy.com</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="img">
+          <img src="./images/person.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
