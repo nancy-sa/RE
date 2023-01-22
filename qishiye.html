@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>网页备忘录</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-image: url("images/person1.jpg");
+        overflow: hidden;
+      }
+      .flex {
+        display: flex;
+      }
+      .space {
+        justify-content: space-between;
+      }
+      .center {
+        justify-content: center;
+        align-items: center;
+      }
+      .column {
+        flex-direction: column;
+      }
+
+      .container .head {
+        width: 956px;
+        height: 100px;
+        /* background-color: bisque; */
+        margin-bottom: 20px;
+      }
+      .container .head .logo {
+        width: 160px;
+        height: 100px;
+        /* background-color: #f75675; */
+      }
+      .container .head .btn {
+        width: 100px;
+        height: 100px;
+        /* background-color: #f75675; */
+        /* text-align: center;
+        line-height: 30px; */
+      }
+
+      .container .head .btn a {
+        text-decoration: none;
+        /* display: block; */
+        border: none;
+        background-color: #00a78e;
+        width: 50px;
+        height: 30px;
+        color: #fff;
+        border-radius: 10px;
+      }
+
+      .container .main {
+        /* background-color: #000; */
+        width: 956px;
+        height: 414px;
+        background-color: #000;
+        opacity: 0.8;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .container .main .jilu {
+        width: 400px;
+        height: 30px;
+        /* background-color: aquamarine; */
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 30px;
+      }
+      .container .main .jilu input {
+        width: 300px;
+        height: 30px;
+        /* background-color: #00a78e; */
+        border: 1px solid #00a78e;
+        margin-right: 10px;
+        padding-left: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+        color: #00a78e;
+      }
+
+      .container .main .jilu input span {
+        width: 10px;
+        height: 10px;
+        background-color: #000;
+        columns: #fff;
+      }
+      .container .main .jilu button {
+        width: 50px;
+        height: 30px;
+        color: #00a78e;
+        font-size: 14px;
+        /* background-color: #00a78e; */
+        border: 1px solid #00a78e;
+        border-radius: 10px;
+      }
+
+      .container .tianjia {
+        list-style: none;
+        color: #fff;
+      }
+
+      .container .tianjia li {
+        padding-bottom: 15px;
+        font-size: 16px;
+      }
+
+      .container .tianjia li button {
+        width: 50px;
+        height: 30px;
+        color: #00a78e;
+        border: 1px solid #00a78e;
+        margin-left: 10px;
+        border-radius: 10px;
+      }
+      .container .align {
+        margin-top: 30px;
+        width: 350px;
+        justify-content: flex-start;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container flex column center">
+      <div class="head flex space">
+        <div class="logo flex center">
+          <img src="./images/logo.jpg" alt="" />
+        </div>
+        <!-- div设置的center,是让a标签居中，而a标签里的文字居中，要在div里用text-align和line-hight设置 -->
+        <!-- 在flex中，行内元素也可以直接加宽高 -->
+        <div class="btn flex center">
+          <a href="./index.html" class="flex center" target="_blank">首页</a>
+        </div>
+      </div>
+      <div class="main flex column">
+        <div class="jilu flex">
+          <input type="text" class="input" placeholder="请输入内容" />
+          <button class="button">添加</button>
+        </div>
+        <div class="flex align">
+          <ul class="tianjia"></ul>
+        </div>
+        <!-- <button class="bt">显示ul</button> -->
+      </div>
+    </div>
+
+    <script>
+      let input = document.querySelector(".input");
+      let btn = document.querySelector("button");
+      let ul = document.querySelector(".tianjia");
+      btn.onclick = function () {
+        let inputValue = input.value;
+        input.value = "";
+        let li = document.createElement("li");
+        li.innerHTML = "<li><span>" + inputValue + "</span></li>";
+        ul.appendChild(li);
+        let toDoLoist = Array.from(ul.querySelectorAll("span"));
+        let list = toDoLoist.map((e) => e.innerText);
+        localStorage.setItem("shi", JSON.stringify(list));
+        // console.log(toDoLoist);
+      };
+
+      let data = localStorage.getItem("shi");
+      if (data) {
+        let arr = JSON.parse(localStorage.getItem("shi"));
+        var s = "";
+        arr.forEach((e) => {
+          s += "<li><span>" + e + "</span></li>";
+        });
+        ul.innerHTML = s;
+      }
+
+      //事件委托
+      ul.onclick = function (e) {
+        let data = JSON.parse(localStorage.getItem("shi"));
+        let index = data.indexOf(e.target.innerText);
+        data.splice(index, 1);
+        localStorage.setItem("shi", JSON.stringify(data));
+        let de = JSON.parse(localStorage.getItem("shi"));
+        var s = "";
+        de.forEach((e) => {
+          s += "<li><span>" + e + "</span></li>";
+        });
+        ul.innerHTML = s;
+        // ul.removeChild(e.target);
+        // console.log(data);
+      };
+    </script>
+  </body>
+</html>
